@@ -1,0 +1,90 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 560px;
+  background: var(--stone);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/stone.jpg') center / cover no-repeat;
+  filter: grayscale(100%);
+}
+
+.hero-nav,
+.hero-line,
+.hero-title {
+  position: absolute;
+  z-index: 1;
+}
+
+.hero-nav {
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 2.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-nav-left {
+  display: flex;
+  gap: 2rem;
+}
+
+.hero-nav a {
+  transition: color 0.4s ease;
+}
+.hero-nav > a {
+  color: var(--stone);
+}
+
+.hero-nav > a:hover {
+  color: var(--ash);
+}
+.hero-nav a:hover {
+  color: #8a7560;
+}
+
+.hero-line {
+  background: #8a8a8a;
+  opacity: 0.8;
+}
+
+.hero-line-vertical {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+}
+
+.hero-line-horizontal {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+}
+
+.hero-title {
+  right: 2.5rem;
+  bottom: 3rem;
+  text-align: right;
+  color: var(--stone);
+}
+
+.hero-title h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.hero-title p {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 0.4rem;
+}
