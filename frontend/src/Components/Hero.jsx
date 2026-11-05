@@ -6,6 +6,7 @@ function Hero() {
       <nav className="hero-nav">
         <div className="hero-nav-left">
           <a href="#work">Work</a>
+          <a href="#about">About</a>
           <a href="#experience">Experience</a>
         </div>
         <a href="#contact">Contact</a>
