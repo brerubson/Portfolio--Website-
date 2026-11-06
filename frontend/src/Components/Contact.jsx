@@ -14,6 +14,7 @@ function Contact() {
         <a href="mailto:rubson.eny@gmail.com">Email</a>
         <a href="https://github.com/brerubson" target="_blank" rel="noreferrer">GitHub</a>
         <a href="https://linkedin.com/in/benedicta-rubsonnn" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="/Benedicta-Rubson-CV.pdf" download>CV</a>
       </div>
 
       <p className="contact-footer">© 2026 Benedicta Rubson</p>

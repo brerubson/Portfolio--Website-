@@ -9,7 +9,10 @@ function Hero() {
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
         </div>
-        <a href="#contact">Contact</a>
+        <div className="hero-nav-right">
+  <a href="/Benedicta-Rubson-CV.pdf" download>CV</a>
+  <a href="#contact">Contact</a>
+</div>
       </nav>
 
       <div className="hero-line hero-line-vertical"></div>

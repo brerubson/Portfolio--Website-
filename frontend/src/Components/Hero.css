@@ -41,11 +41,16 @@
 .hero-nav a {
   transition: color 0.4s ease;
 }
-.hero-nav > a {
+.hero-nav-right {
+  display: flex;
+  gap: 2rem;
+}
+
+.hero-nav-right a {
   color: var(--stone);
 }
 
-.hero-nav > a:hover {
+.hero-nav-right a:hover {
   color: var(--ash);
 }
 .hero-nav a:hover {
