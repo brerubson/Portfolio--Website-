@@ -1,0 +1,51 @@
+.experience {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8rem 2.5rem;
+}
+
+.experience-list {
+  list-style: none;
+  border-top: 1px solid var(--ash);
+}
+
+.experience-row {
+  display: grid;
+  grid-template-columns: 14rem 1fr 12rem;
+  gap: 2rem;
+  align-items: start;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--ash);
+}
+
+.experience-period,
+.experience-location {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b6a66;
+}
+
+.experience-location {
+  text-align: right;
+}
+
+.experience-role h2 {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+}
+
+.experience-role p {
+  margin-top: 0.4rem;
+  color: #6b6a66;
+}
+
+@media (max-width: 800px) {
+  .experience-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .experience-location {
+    text-align: left;
+  }
+}
