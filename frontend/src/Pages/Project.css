@@ -1,0 +1,95 @@
+.project {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2.5rem 8rem;
+}
+
+.project-back {
+  display: inline-block;
+  margin-bottom: 5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: color 0.4s ease;
+}
+
+.project-back:hover {
+  color: #8a7560;
+}
+
+.project h1 {
+  margin-top: 1rem;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.15;
+}
+
+.project-headline {
+  margin: 3.5rem 0 5rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--ash);
+  border-bottom: 1px solid var(--ash);
+}
+
+.project-headline-number {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(3.5rem, 9vw, 6rem);
+  line-height: 1;
+}
+
+.project-headline-label {
+  display: block;
+  margin-top: 0.8rem;
+  color: #6b6a66;
+}
+
+.project-block {
+  margin-bottom: 3.5rem;
+}
+
+.project-block h2 {
+  margin-bottom: 1rem;
+  font-family: var(--font-sans);
+  font-variant: normal;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #6b6a66;
+}
+
+.project-block p,
+.project-block li {
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+.project-block ul {
+  list-style: none;
+}
+
+.project-block li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--ash);
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.project-links a {
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--charcoal);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+.project-links a:hover {
+  color: #8a7560;
+  border-color: #8a7560;
+}

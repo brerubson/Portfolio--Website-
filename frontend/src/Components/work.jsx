@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Work.css'
 import { projects } from '../data'
 
@@ -8,18 +9,20 @@ function Work() {
 
       <ul className="work-list">
         {projects.map((project) => (
-          <li className="work-row" key={project.id}>
-            <span className="work-number">{project.number}</span>
+          <li key={project.id}>
+            <Link className="work-row" to={`/projects/${project.id}`}>
+              <span className="work-number">{project.number}</span>
 
-            <div className="work-info">
-              <h2>{project.title}</h2>
-              <p className="work-tech">{project.tech.join(' · ')}</p>
-            </div>
+              <div className="work-info">
+                <h2>{project.title}</h2>
+                <p className="work-tech">{project.tech.join(' · ')}</p>
+              </div>
 
-            <div className="work-result">
-              <span className="work-headline">{project.headline}</span>
-              <span className="work-label">{project.headlineLabel}</span>
-            </div>
+              <div className="work-result">
+                <span className="work-headline">{project.headline}</span>
+                <span className="work-label">{project.headlineLabel}</span>
+              </div>
+            </Link>
           </li>
         ))}
       </ul>
