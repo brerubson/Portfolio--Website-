@@ -7,14 +7,17 @@ function Project() {
   const { id } = useParams()
   const project = projects.find((p) => p.id === id)
 
-  useEffect(() => {
+   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [id])
+    if (project) {
+      document.title = `${project.title} | Benedicta Rubson`
+    }
+  }, [id, project])
 
   if (!project) {
     return (
       <article className="project">
-        <Link className="project-back" to="/">← Back</Link>
+        <Link className="project-back" to="/#work">← Back</Link>
         <h1>Project not found</h1>
       </article>
     )
@@ -22,7 +25,7 @@ function Project() {
 
   return (
     <article className="project">
-      <Link className="project-back" to="/">← All work</Link>
+      <Link className="project-back" to="/#work">← All work</Link>
 
       <p className="section-label">
         {project.number} · {project.period}
