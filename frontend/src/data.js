@@ -66,25 +66,6 @@ export const projects = [
     github: 'https://github.com/brerubson/PortfolioPilot',
     dashboard: '',
   },
-  {
-    id: 'ship-detection',
-    number: '04',
-    title: 'Satellite Ship Detection using CNNs',
-    period: 'Jun 2025 – Jul 2025',
-    headline: 'CNN',
-    headlineLabel: 'team project, presented to a technical panel',
-    question: 'Can a convolutional neural network detect ships in satellite imagery?',
-    data: 'Satellite imagery.',
-    method: [
-      'Built a CNN-based computer vision solution in Python and PyTorch.',
-      'Led the team and managed delivery end to end.',
-    ],
-    result:
-      'Presented the findings to a technical panel.',
-    tech: ['Python', 'PyTorch', 'NumPy', 'Computer Vision'],
-    github: '',
-    dashboard: '',
-  },
 ]
 
 export const experience = [
