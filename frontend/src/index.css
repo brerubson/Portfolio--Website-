@@ -34,10 +34,3 @@ a {
 html {
   scroll-behavior: smooth;
 }
-.status-message {
-  padding: 2rem 0;
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #6b6a66;
-}
