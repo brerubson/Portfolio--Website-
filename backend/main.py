@@ -19,8 +19,15 @@ CONTACT_TO_EMAIL = os.getenv("CONTACT_TO_EMAIL")
 
 app = FastAPI()
 
+origins = [
+    origin.strip()
+    for origin in os.getenv("FRONTEND_ORIGINS", "").split(",")
+    if origin.strip()
+]
+
 app.add_middleware(
     CORSMiddleware,
+    allow_origins=origins,
     allow_origin_regex=r"http://localhost:\d+",
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
