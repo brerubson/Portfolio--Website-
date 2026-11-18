@@ -1,24 +1,37 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { projects } from '../data'
+import { getProject } from '../api'
 import './Project.css'
 
 function Project() {
   const { id } = useParams()
-  const project = projects.find((p) => p.id === id)
+  const [project, setProject] = useState(null)
+  const [status, setStatus] = useState('loading')
 
-   useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0)
-    if (project) {
-      document.title = `${project.title} | Benedicta Rubson`
-    }
-  }, [id, project])
 
-  if (!project) {
+    getProject(id)
+      .then((data) => {
+        setProject(data)
+        setStatus('ready')
+        document.title = `${data.title} | Benedicta Rubson`
+      })
+      .catch((error) => {
+        setStatus(error.status === 404 ? 'notfound' : 'error')
+      })
+  }, [id])
+
+  if (status !== 'ready') {
     return (
       <article className="project">
-        <Link className="project-back" to="/#work">← Back</Link>
-        <h1>Project not found</h1>
+        <Link className="project-back" to="/#work">← All work</Link>
+
+        {status === 'loading' && <p className="status-message">Loading…</p>}
+        {status === 'notfound' && <h1>Project not found</h1>}
+        {status === 'error' && (
+          <p className="status-message">Couldn’t load this project. Please try again.</p>
+        )}
       </article>
     )
   }
