@@ -17,8 +17,8 @@ function Work() {
   }, [])
 
   return (
-    <section className="work" id="work">
-      <p className="section-label">Selected Work</p>
+    <section className="work" id="projects">
+  <p className="section-label">Projects</p>
 
       {status === 'loading' && <p className="status-message">Loading…</p>}
       {status === 'error' && (

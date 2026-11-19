@@ -16,8 +16,8 @@ function Experience() {
   }, [])
 
   return (
-    <section className="experience" id="experience">
-      <p className="section-label">Experience</p>
+    <section className="experience" id="work">
+  <p className="section-label">Work</p>
 
       {status === 'loading' && <p className="status-message">Loading…</p>}
       {status === 'error' && (

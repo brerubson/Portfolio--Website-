@@ -25,7 +25,7 @@ function Project() {
   if (status !== 'ready') {
     return (
       <article className="project">
-        <Link className="project-back" to="/#work">← All work</Link>
+        <Link className="project-back" to="/#projects">← All work</Link>
 
         {status === 'loading' && <p className="status-message">Loading…</p>}
         {status === 'notfound' && <h1>Project not found</h1>}

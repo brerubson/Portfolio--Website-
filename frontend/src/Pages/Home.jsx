@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Hero from '../Components/Hero'
 import Work from '../Components/Work'
-import About from '../Components/About'
 import Experience from '../Components/Experience'
+import About from '../Components/About'
 import Contact from '../Components/Contact'
 
 function Home() {
@@ -20,8 +20,8 @@ function Home() {
     <main>
       <Hero />
       <Work />
-      <About />
       <Experience />
+      <About />
       <Contact />
     </main>
   )
