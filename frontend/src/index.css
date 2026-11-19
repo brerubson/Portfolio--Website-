@@ -36,7 +36,8 @@ html {
 }
 .work .section-label,
 .experience .section-label,
-.about .section-label {
+.about .section-label,
+.contact .section-label {
   font-family: var(--font-serif);
   font-variant: small-caps;
   font-size: clamp(2rem, 4vw, 3rem);
