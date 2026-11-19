@@ -1,6 +1,8 @@
 import html
 import json
 import os
+import time
+from collections import deque
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -35,11 +37,27 @@ app.add_middleware(
 
 MESSAGES_FILE = Path(__file__).parent / "messages.jsonl"
 
+# (window in seconds, maximum messages in that window)
+RATE_LIMITS = [(600, 5), (86400, 30)]
+recent_messages: deque = deque()
+
+
+def rate_limited() -> bool:
+    now = time.time()
+    while recent_messages and now - recent_messages[0] > 86400:
+        recent_messages.popleft()
+    for window, limit in RATE_LIMITS:
+        count = sum(1 for sent in recent_messages if now - sent <= window)
+        if count >= limit:
+            return True
+    return False
+
 
 class ContactMessage(BaseModel):
     name: str = Field(min_length=1, max_length=100)
     email: EmailStr
     message: str = Field(min_length=1, max_length=2000)
+    website: str = Field(default="", max_length=200)
 
 
 def send_email_notification(contact: ContactMessage) -> None:
@@ -90,9 +108,17 @@ def get_experience():
 
 @app.post("/contact", status_code=201)
 def send_message(contact: ContactMessage):
+    # Honeypot: real visitors never see this field, bots fill it in.
+    if contact.website:
+        return {"status": "received"}
+
+    if rate_limited():
+        raise HTTPException(status_code=429, detail="Too many messages")
+    recent_messages.append(time.time())
+
     record = {
         "received_at": datetime.now(timezone.utc).isoformat(),
-        **contact.model_dump(),
+        **contact.model_dump(exclude={"website"}),
     }
     with MESSAGES_FILE.open("a", encoding="utf-8") as file:
         file.write(json.dumps(record) + "\n")

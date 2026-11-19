@@ -2,8 +2,10 @@ import { useState } from 'react'
 import './Contact.css'
 import { sendMessage } from '../api'
 
+const emptyForm = { name: '', email: '', message: '', website: '' }
+
 function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [form, setForm] = useState(emptyForm)
   const [status, setStatus] = useState('idle')
 
   function handleChange(event) {
@@ -16,10 +18,10 @@ function Contact() {
 
     try {
       await sendMessage(form)
-      setForm({ name: '', email: '', message: '' })
+      setForm(emptyForm)
       setStatus('sent')
-    } catch {
-      setStatus('error')
+    } catch (error) {
+      setStatus(error.status === 429 ? 'limited' : 'error')
     }
   }
 
@@ -68,12 +70,31 @@ function Contact() {
           />
         </label>
 
+        <div className="hp-field" aria-hidden="true">
+          <label>
+            Leave this field empty
+            <input
+              type="text"
+              name="website"
+              value={form.website}
+              onChange={handleChange}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </label>
+        </div>
+
         <button type="submit" disabled={status === 'sending'}>
           {status === 'sending' ? 'Sending…' : 'Send message →'}
         </button>
 
         {status === 'sent' && (
           <p className="form-message">Thank you. Your message has been sent.</p>
+        )}
+        {status === 'limited' && (
+          <p className="form-message">
+            Too many messages right now. Please try again later, or use the links below.
+          </p>
         )}
         {status === 'error' && (
           <p className="form-message">
